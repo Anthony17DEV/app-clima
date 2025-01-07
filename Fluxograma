@@ -1,0 +1,21 @@
+Ler a documentação da API OpenWeatherMap:
+
+Verifique como se autenticar (chave da API).
+Entenda os endpoints necessários para obter o clima atual e a previsão.
+Identifique os parâmetros obrigatórios (como cidade, estado, país ou coordenadas).
+Teste chamadas na API usando ferramentas como Postman ou até mesmo requests no Python.
+Criar a tela de boas-vindas:
+
+Decida se será um aplicativo de console ou com interface gráfica (GUI).
+Para console, uma mensagem simples de texto pode bastar.
+Para GUI, você pode explorar bibliotecas como tkinter, PyQt ou Kivy.
+Entrada do usuário:
+
+Solicite que o usuário insira a cidade/país ou, se possível, obtenha a localização automaticamente (usando uma biblioteca como geopy para pegar a localização por IP).
+Valide a entrada para evitar erros ao enviar para a API.
+Fazer a chamada à API e mostrar resultados:
+
+Realize a requisição para a API OpenWeatherMap.
+Trate possíveis erros (como cidade não encontrada ou problemas de conexão).
+Apresente os dados de forma legível, como temperatura, descrição do clima, umidade, etc.
+Opcional: Adicione a previsão para os próximos dias em formato de lista ou tabela.
