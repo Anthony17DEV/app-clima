@@ -3,7 +3,7 @@ from geopy.geocoders import Nominatim
 geolocator = Nominatim(user_agent="Previsão_Agora")
 
 print("Seja bem vindo a previsão do tempo")
-localizacao = input("Insira seu endereço (ex:Rua do Tubarão 80, Tibau - RN ):")
+localizacao = input("Insira seu endereço (EX: Rua do Tubarão 80, Tibau - RN ):")
 
 location = geolocator.geocode(localizacao)
 if location:
@@ -14,7 +14,7 @@ else:
     exit()
 
 api_key = "54a12b195967f8987756cfa52ee1e3c6"
-url= f"https://api.openweathermap.org/data/2.5/onecall"
+url = "https://api.openweathermap.org/data/2.5/weather"
 params = {
     "lat": location.latitude,
     "lon": location.longitude,
@@ -24,13 +24,13 @@ params = {
 }
 
 response = requests.get(url,params=params)
+print(response.json())
 if response.status_code == 200:
     data = response.json()
-    clima_atual = data["current"]
     print("\nPrevisão do tempo atual:")
-    print(f"Temperatura atual: {clima_atual["temp"]}°C")
-    print(f"Descrição: {clima_atual['weather'][0]['description'].capitalize()}")
-    print(f"Umidade: {clima_atual['humidity']}%")
-    print(f"Vento: {clima_atual['wind_speed']} m/s")
+    print(f"Temperatura atual: {data['main']['temp']}°C")
+    print(f"Descrição: {data['weather'][0]['description'].capitalize()}")
+    print(f"Umidade: {data['main']['humidity']}%")
+    print(f"Vento: {data['wind']['speed']} m/s")
 else:
     print("Erro ao acessar a API. Verifique sua chave ou conexão com a internet.")
